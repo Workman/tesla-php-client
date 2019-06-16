@@ -200,6 +200,21 @@ class Tesla
         return $this->sendRequest('/command/navigation_request', $params, 'POST')['response'];
     }
 
+    public function setSentryMode(bool $enable) : array
+    {
+        return $this->sendRequest('/command/set_sentry_mode?on=' . ($enable ? 'true' : 'false') , [], 'POST')['response'];
+    }
+
+    public function enableSentryMode() : array
+    {
+        return $this->setSentryMode(true);
+    }
+
+    public function disableSentryMode() : array
+    {
+        return $this->setSentryMode(false);
+    }
+
     public function getAccessToken(string $username, string $password)
     {
         $ch = curl_init();
