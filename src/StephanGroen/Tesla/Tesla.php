@@ -205,12 +205,12 @@ class Tesla
         return $this->sendRequest('/command/set_sentry_mode?on=' . ($enable ? 'true' : 'false') , [], 'POST')['response'];
     }
 
-    public function enableSentryMode() : array
+    public function startSentryMode() : array
     {
         return $this->setSentryMode(true);
     }
 
-    public function disableSentryMode() : array
+    public function stopSentryMode() : array
     {
         return $this->setSentryMode(false);
     }
